@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animehunter123's Github Homepage</title>
+</head>
+<body>
+    <main>
+        <div class="topcard" 
+        style="
+        margin: 20px;
+        border: 10px dotted rgb(5, 46, 73);
+        padding: 20px;
+        "
+        >
+            <h1>Hello World, for fun.</h1>
+            <h2>Can't live without the wonderful folks at: <a href="http://mdn.io/">mdn.io</a></h2>
+            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima praesentium nihil, perferendis cupiditate non molestias quas vitae facilis voluptatibus placeat fuga alias iste rem debitis neque et, sit ratione aliquam!</h3>
+        </div>
+
+        <div class="didyouknow" 
+        style="color: rgb(5, 70, 114); margin: 20px;"
+        >Did you know that the div element is called the "Content Division" element in CSS? </div>
+    </main>
+
+    <section>
+        <div class="css-tips">
+            <h1>CSS Note, Dont forget: (Position > Specificity > Type > !Importance)</h1>
+            </code>
+        </div>
+    </section>
+</body>
+</html>
