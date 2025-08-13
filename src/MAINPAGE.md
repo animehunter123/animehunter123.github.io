@@ -2,7 +2,7 @@
 
 Welcome to my little notes page for random notes.
 
-This is just a mdbook of random notes that I may update if needed, for now it is intentionally minimal. (Credit to mdbook folks for awesome tool, not mine!)
+This is just a mdbook of random notes that I may update if needed, for now it is intentionally minimal. [(Credit to mdBook folks for awesome tool!)](https://rust-lang.github.io/mdBook/)
 
 Thanks for visiting, and please dont forget to support your community and donate to organizations like pancan (to help those sick with pancreatic cancer).
 
