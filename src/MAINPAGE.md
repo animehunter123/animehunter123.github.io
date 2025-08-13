@@ -9,13 +9,13 @@ Thanks for visiting, and please dont forget to support your community and donate
 Thanks kindly!
 
 
-# Misc (How to edit the mdbook)
-* dont ever edit anything inside of ./book, only edit markdowns in ./src
-* run command: mdbook serve
-* then vi the SUMMARY.md or book.toml, and it will update left menu bar in real time.
+# Misc (How to edit the mdbook!)
+* Dont ever edit anything inside of ./book, only edit markdowns in ./src
+* Run command: mdbook serve
+* Then vi the SUMMARY.md or book.toml, and it will update left menu bar in real time.
 * Now, mdbook serve, should have updated the searchindex.js based on your markdown edits etc, so git commit em up!
 
-# ⌨️ mdBook Keyboard Shortcuts
+# Keyboard Shortcuts ⌨️
 Anyone who knows me, knows I love webapps that fully support keyboard shortcuts. This book does so! Try typing the / character for example :P
 | Shortcut        | Action                                               | Notes                              |
 |-----------------|-----------------------------------------------------|------------------------------------|
