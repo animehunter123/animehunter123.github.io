@@ -10,5 +10,18 @@ Thanks kindly!
 
 
 # Misc (How to edit the mdbook)
-* mdbook serve
+* dont ever edit anything inside of ./book, only edit markdowns in ./src
+* run command: mdbook serve
 * then vi the SUMMARY.md or book.toml, and it will update left menu bar in real time.
+* Now, mdbook serve, should have updated the searchindex.js based on your markdown edits etc, so git commit em up!
+
+# ⌨️ mdBook Keyboard Shortcuts
+Anyone who knows me, knows I love webapps that fully support keyboard shortcuts. This book does so! Try typing the / character for example :P
+| Shortcut        | Action                                               | Notes                              |
+|-----------------|-----------------------------------------------------|------------------------------------|
+| ← (Arrow Left)  | Go to previous chapter/page                         | Fast navigation                    |
+| → (Arrow Right) | Go to next chapter/page                             | Fast navigation                    |
+| S or /          | Open search bar                                     | Instantly search chapters          |
+| ?               | Open shortcuts/help menu                            | Shows all shortcuts                |
+| Esc             | Close help/search/menus                             | Quick exit from overlays           |
+| Ctrl + Enter    | Run code block (if focused on interactive sample)   | For interactive Rust playgrounds   |
