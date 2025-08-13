@@ -1,0 +1,366 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>animehunter123&#x27;s github homepage</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">animehunter123&#x27;s github homepage</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>Welcome to my little notes page for random notes.</p>
+<p>This is just a mdbook of random notes that I may update if needed, for now it is intentionally minimal.</p>
+<p>Thanks for visiting, and please dont forget to support your community and donate to organizations like pancan (to help those sick with pancreatic cancer).</p>
+<p>Thanks kindly!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-webdev"><a class="header" href="#-webdev">🕸️ webdev</a></h1>
+<p>Here are some of my <strong>favorite go-to websites</strong> for learning, referencing, and improving at modern web development.<br />
+I've added notes so I remember <strong>what each is best for</strong>.</p>
+<hr />
+<h2 id="-learning--documentation"><a class="header" href="#-learning--documentation">📚 Learning &amp; Documentation</a></h2>
+<ul>
+<li>
+<p><a href="https://developer.mozilla.org">MDN Web Docs</a> — <em>The holy grail of web dev references</em>. Official specs, browser compatibility tables, and detailed documentation for HTML, CSS, JS, APIs, and more.</p>
+</li>
+<li>
+<p><a href="https://javascript.info/">The Modern JavaScript Tutorial</a> — <em>Start from scratch and master JavaScript</em>, from fundamentals to advanced concepts like OOP, the DOM, and events.</p>
+</li>
+</ul>
+<hr />
+<h2 id="-design--assets"><a class="header" href="#-design--assets">🎨 Design &amp; Assets</a></h2>
+<ul>
+<li>
+<p><a href="https://favicon.io/">Favicon.io</a> — Generate favicons from text, images, or emojis for your projects. Fast and free.</p>
+</li>
+<li>
+<p><a href="https://css-tricks.com/">CSS-Tricks</a> — Articles, tips, and guides covering everything from layout techniques to animations.</p>
+</li>
+<li>
+<p><a href="https://www.frontendmentor.io/">Frontend Mentor</a> — Practice front-end skills by building real projects from design files.</p>
+</li>
+</ul>
+<hr />
+<h2 id="-tools--playgrounds"><a class="header" href="#-tools--playgrounds">🛠️ Tools &amp; Playgrounds</a></h2>
+<ul>
+<li>
+<p><a href="https://codepen.io/">CodePen</a> — Live HTML, CSS, JS sandbox for quick prototyping and sharing.</p>
+</li>
+<li>
+<p><a href="https://jsfiddle.net/">JSFiddle</a> — Another quick JS/CSS/HTML test environment.</p>
+</li>
+<li>
+<p><a href="https://caniuse.com/">Can I use</a> — Check browser support for web features.</p>
+</li>
+</ul>
+<hr />
+<p>💡 <strong>Tip:</strong> Bookmark these, and keep your toolbox handy — having quick access to docs and tools saves hours every week. Really helpful DEFINITELY!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-rustdev"><a class="header" href="#-rustdev">🦀 rustdev</a></h1>
+<p>These are little cool things I found on my Rust journey. Imho these are <strong>best-in-class tutorials, frameworks, and community-curated guides</strong>.
+I've grouped the links by what you might want to do—whether you're learning the language, building web apps, or exploring advanced topics.</p>
+<hr />
+<h2 id="-rust-language-learning"><a class="header" href="#-rust-language-learning">🎓 Rust Language Learning</a></h2>
+<ul>
+<li>
+<p><a href="https://doc.rust-lang.org/book/">The Rust Programming Language ("The Book")</a><br />
+<em>Classic and official guide – covers everything from syntax to ownership. Every Rustacean recommends starting here! THIS IS MY FAVORITE WEBPAGE</em></p>
+</li>
+<li>
+<p><a href="https://github.com/google/comprehensive-rust">Comprehensive Rust (Google)</a><br />
+<em>Modern tutorial, widely used at Google and ideal for beginners who want structure and clarity.</em></p>
+</li>
+<li>
+<p><a href="https://github.com/rust-unofficial/awesome-rust">rust-unofficial/awesome-rust</a><br />
+<em>A huge, community-curated resource list. Find tutorials, examples, and crates for any Rust topic.</em></p>
+</li>
+<li>
+<p><a href="https://roadmap.sh/rust">Roadmap.sh - Learn to become a Rust Developer</a><br />
+<em>Interactive, community-powered roadmap with best practices, projects, and articles. Great for self-starters.</em></p>
+</li>
+</ul>
+<hr />
+<h2 id="-web-development-frameworks--guides"><a class="header" href="#-web-development-frameworks--guides">🌐 Web Development Frameworks &amp; Guides</a></h2>
+<ul>
+<li>
+<p><a href="https://actix.rs/">Actix Web</a><br />
+<em>Blazing fast, production-ready web framework. High performance, async-ready, and widely used in high-load scenarios.</em></p>
+</li>
+<li>
+<p><a href="https://github.com/tokio-rs/axum">Axum</a><br />
+<em>Modern, type-safe framework from the authors of Tokio. Clean API, async/await powered, and great for scalable services.</em></p>
+</li>
+<li>
+<p><a href="https://rocket.rs/">Rocket</a><br />
+<em>Focuses on ergonomics and safety—easy for rapid prototyping and robust web APIs.</em></p>
+</li>
+<li>
+<p><a href="https://github.com/http-rs/tide">Tide</a><br />
+<em>Minimalist and intuitive – good for beginners or hobby projects wanting a quick start.</em></p>
+</li>
+<li>
+<p><a href="https://loco.rs/">Loco</a><br />
+<em>New full-stack framework inspired by Rails—batteries included, great for CRUD-heavy web apps.</em></p>
+</li>
+</ul>
+<hr />
+<h2 id="-practice--projects"><a class="header" href="#-practice--projects">🧩 Practice &amp; Projects</a></h2>
+<ul>
+<li><a href="https://codecrafters.io/tracks/rust">CodeCrafters — Real-world Rust Projects</a><br />
+<em>Build real systems (HTTP server, Redis, Git) from scratch. Step-by-step practice for intermediate and advanced learners.</em></li>
+</ul>
+<hr />
+<h2 id="-extra-inspiration"><a class="header" href="#-extra-inspiration">💡 Extra Inspiration</a></h2>
+<ul>
+<li>
+<p><a href="https://blog.logrocket.com/top-rust-web-frameworks/">LogRocket — Exploring the top Rust web frameworks</a><br />
+<em>Quick breakdown and comparison of popular frameworks in 2025—ideal for making decisions between Actix, Rocket, Axum, and more.</em></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=twpdAOLUgw0">How to Choose a Rust Web Framework (YouTube)</a><br />
+<em>Video guide discussing the pros and cons of the main frameworks—covers beginner to expert preferences.</em></p>
+</li>
+</ul>
+<hr />
+<p>🔔 <strong>Tip:</strong> Try building a tiny web API in <em>each framework</em> to see which fits your style.<br />
+Bookmark these, stay curious, and dig into community discussions—Rust moves fast, so keeping your notes up-to-date is key!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rustdev-misc"><a class="header" href="#rustdev-misc">rustdev-misc</a></h1>
+<p>Random notes...</p>
+<pre><code class="language-bash">
+cargo doc --open ---- this will open only the manpages of your current git project
+Ownership BTW ONLY 1 MUTABLE REF to mem is allowed.md
+Ownership Transfer to Functions for Heap stuff like string, but not ints.rs
+Ownership-GOOD-EXAMPLE.rs
+reference is like a pointer but always guaranteed to point to valid memory
+SemVer means Semantic versioning like rand 0.8.5.txt
+unwrap() is same as expect() but wo msg
+
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
