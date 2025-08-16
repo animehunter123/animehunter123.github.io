@@ -1,4 +1,4 @@
-# rustdev-misc
+# misc
 
 Random notes...
 
