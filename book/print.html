@@ -336,7 +336,7 @@ SemVer means Semantic versioning like rand 0.8.5.txt
 unwrap() is same as expect() but wo msg
 </code></pre>
 <h1 id="guessinggame-loop-stdin-match"><a class="header" href="#guessinggame-loop-stdin-match">GuessingGame (loop, stdin, match)</a></h1>
-<pre><pre class="playground"><code class="language-rust">// GuessingGame!. NOTE: run "cargo add rand" to add the rand crate to your project!
+<pre><pre class="playground"><code class="language-rust">// GuessingGame! NOTE: run "cargo add rand" with rust edition 2024 to add the rand crate, confirm with toml, but future might not work with below code. 2021 used the "use rand::Rng;" but rust edition 2024 no longer needs a use import. (I think).
 use std::cmp::Ordering;
 use std::io;
 fn main() {
@@ -387,7 +387,6 @@ fn main() {
     let target: f32 = target.trim().parse().expect("cant convert to FARENHEIGHT!");
     let faren = (target * 9.0 / 5.0) + 32.0;
     println!("Ok in FARENHEIGHT it is... {faren}");
-    rand::random_range(1..10)
 }</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-navigate-rust-docs"><a class="header" href="#how-to-navigate-rust-docs">how-to-navigate-rust-docs</a></h1>
 <p>This is a good page, the trick to navigate to it is:</p>

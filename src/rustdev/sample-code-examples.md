@@ -12,7 +12,7 @@ unwrap() is same as expect() but wo msg
 
 # GuessingGame (loop, stdin, match)
 ```rust
-// GuessingGame!. NOTE: run "cargo add rand" to add the rand crate to your project!
+// GuessingGame! NOTE: run "cargo add rand" with rust edition 2024 to add the rand crate, confirm with toml, but future might not work with below code. 2021 used the "use rand::Rng;" but rust edition 2024 no longer needs a use import. (I think).
 use std::cmp::Ordering;
 use std::io;
 fn main() {
@@ -69,6 +69,5 @@ fn main() {
     let target: f32 = target.trim().parse().expect("cant convert to FARENHEIGHT!");
     let faren = (target * 9.0 / 5.0) + 32.0;
     println!("Ok in FARENHEIGHT it is... {faren}");
-    rand::random_range(1..10)
 }
 ```
