@@ -185,12 +185,12 @@ SemVer means Semantic versioning like rand 0.8.5.txt
 unwrap() is same as expect() but wo msg
 </code></pre>
 <h1 id="guessinggame-loop-stdin-match"><a class="header" href="#guessinggame-loop-stdin-match">GuessingGame (loop, stdin, match)</a></h1>
-<pre><pre class="playground"><code class="language-rust">use std::cmp::Ordering;
+<pre><pre class="playground"><code class="language-rust">// GuessingGame!. NOTE: run "cargo add rand" to add the rand crate to your project!
+use std::cmp::Ordering;
 use std::io;
-use rand::Rng;
 fn main() {
-    println!("Guess the number!");
-    let secret_number = rand::thread_rng().gen_range(1..=100);
+    println!("Guess the number (from 1 to 100!");
+    let secret_number = rand::random_range(1..=100);
     loop {
         println!("Please input your guess.");
         let mut guess = String::new();
@@ -199,7 +199,7 @@ fn main() {
             .expect("Failed to read line");
         let guess: u32 = match guess.trim().parse() {
             Ok(num) =&gt; num,
-            Err(_) =&gt; continue,
+            Err(_) =&gt; { println!("Please type a number i32!"); continue; },
         };
         println!("You guessed: {guess}");
         match guess.cmp(&amp;secret_number) {
