@@ -183,10 +183,10 @@
 <p>Thanks kindly!</p>
 <h1 id="misc-how-to-edit-the-mdbook"><a class="header" href="#misc-how-to-edit-the-mdbook">Misc (How to edit the mdbook!)</a></h1>
 <ul>
-<li>Dont ever edit anything inside of ./book, only edit markdowns in ./src</li>
-<li>Run command: mdbook serve</li>
-<li>Then vi the SUMMARY.md or book.toml, and it will update left menu bar in real time.</li>
-<li>Now, mdbook serve, should have updated the searchindex.js based on your markdown edits etc, so git commit em up!</li>
+<li>Run command: <code>cargo install mdbook &amp;&amp; mdbook serve</code> to generate ./book HTMLs.</li>
+<li>Edit/Add Notes into Markdown Files in ./src ONLY <strong>WHILE <code>mdbook serve</code> IS RUNNING!!!!!</strong></li>
+<li>Then vi the SUMMARY.md or book.toml, and it will update left menu bar in real time, and create new md files in the menu bar.</li>
+<li>Now, mdbook serve, should have updated the searchindex.js based on your markdown edits etc, so ctrl+c to close mdbook, and git commit em up!</li>
 </ul>
 <h1 id="keyboard-shortcuts-"><a class="header" href="#keyboard-shortcuts-">Keyboard Shortcuts ⌨️</a></h1>
 <p>Anyone who knows me, knows I love webapps that fully support keyboard shortcuts. This book does so! Try typing the / character for example :P</p>
@@ -205,7 +205,7 @@ I've added notes so I remember <strong>what each is best for</strong>.</p>
 <h2 id="-learning--documentation"><a class="header" href="#-learning--documentation">📚 Learning &amp; Documentation</a></h2>
 <ul>
 <li>
-<p><a href="https://developer.mozilla.org">MDN Web Docs</a> — <em>The holy grail of web dev references</em>. Official specs, browser compatibility tables, and detailed documentation for HTML, CSS, JS, APIs, and more.</p>
+<p><a href="https://developer.mozilla.org">MDN Web Docs</a> — <em>The holy grail of web dev references!!!!!!!!!! ALWAYS USE THI, i just type mdn.io in the browser too and it works well just like docs.rs essentially as a BROWSER URL</em>. Official specs, browser compatibility tables, and detailed documentation for HTML, CSS, JS, APIs, and more.</p>
 </li>
 <li>
 <p><a href="https://javascript.info/">The Modern JavaScript Tutorial</a> — <em>Start from scratch and master JavaScript</em>, from fundamentals to advanced concepts like OOP, the DOM, and events.</p>
@@ -266,7 +266,7 @@ I've grouped the links by what you might want to do—whether you're learning th
 <ul>
 <li>
 <p><a href="https://doc.rust-lang.org/book/">The Rust Programming Language ("The Book")</a><br />
-<em>Classic and official guide – covers everything from syntax to ownership. Every Rustacean recommends starting here! THIS IS MY FAVORITE WEBPAGE</em></p>
+<em>Classic and official guide – covers everything from syntax to ownership. Every Rustacean recommends starting here! THIS IS MY FAVORITE WEBPAGE!!!!!!!!!!!</em></p>
 </li>
 <li>
 <p><a href="https://github.com/google/comprehensive-rust">Comprehensive Rust (Google)</a><br />
@@ -328,16 +328,42 @@ I've grouped the links by what you might want to do—whether you're learning th
 Bookmark these, stay curious, and dig into community discussions—Rust moves fast, so keeping your notes up-to-date is key!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="misc"><a class="header" href="#misc">misc</a></h1>
 <p>Random notes...</p>
-<pre><code class="language-bash">
-cargo doc --open ---- this will open only the manpages of your current git project
+<pre><code class="language-bash">cargo doc --open ---- this will open only the manpages of your current git project
 Ownership BTW ONLY 1 MUTABLE REF to mem is allowed.md
 Ownership Transfer to Functions for Heap stuff like string, but not ints.rs
 reference is like a pointer but always guaranteed to point to valid memory
 SemVer means Semantic versioning like rand 0.8.5.txt
 unwrap() is same as expect() but wo msg
-
 </code></pre>
-<h1 id="ownership-goodexamplerustrs"><a class="header" href="#ownership-goodexamplerustrs">Ownership-GoodExample(Rust).rs</a></h1>
+<h1 id="guessinggame-loop-stdin-match"><a class="header" href="#guessinggame-loop-stdin-match">GuessingGame (loop, stdin, match)</a></h1>
+<pre><pre class="playground"><code class="language-rust">use std::cmp::Ordering;
+use std::io;
+use rand::Rng;
+fn main() {
+    println!("Guess the number!");
+    let secret_number = rand::thread_rng().gen_range(1..=100);
+    loop {
+        println!("Please input your guess.");
+        let mut guess = String::new();
+        io::stdin()
+            .read_line(&amp;mut guess)
+            .expect("Failed to read line");
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) =&gt; num,
+            Err(_) =&gt; continue,
+        };
+        println!("You guessed: {guess}");
+        match guess.cmp(&amp;secret_number) {
+            Ordering::Less =&gt; println!("Too small!"),
+            Ordering::Greater =&gt; println!("Too big!"),
+            Ordering::Equal =&gt; {
+                println!("You win!");
+                break;
+            }
+        }
+    }
+}</code></pre></pre>
+<h1 id="ownership-borrowing"><a class="header" href="#ownership-borrowing">Ownership (borrowing)</a></h1>
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let mut s = String::from("hello");
     let r1 = &amp;s; // no problem

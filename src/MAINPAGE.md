@@ -10,10 +10,10 @@ Thanks kindly!
 
 
 # Misc (How to edit the mdbook!)
-* Dont ever edit anything inside of ./book, only edit markdowns in ./src
-* Run command: mdbook serve
-* Then vi the SUMMARY.md or book.toml, and it will update left menu bar in real time.
-* Now, mdbook serve, should have updated the searchindex.js based on your markdown edits etc, so git commit em up!
+* Run command: ```cargo install mdbook && mdbook serve``` to generate ./book HTMLs.
+* Edit/Add Notes into Markdown Files in ./src ONLY **WHILE `mdbook serve` IS RUNNING!!!!!**
+* Then vi the SUMMARY.md or book.toml, and it will update left menu bar in real time, and create new md files in the menu bar.
+* Now, mdbook serve, should have updated the searchindex.js based on your markdown edits etc, so ctrl+c to close mdbook, and git commit em up!
 
 # Keyboard Shortcuts ⌨️
 Anyone who knows me, knows I love webapps that fully support keyboard shortcuts. This book does so! Try typing the / character for example :P

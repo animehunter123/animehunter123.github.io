@@ -1,19 +1,47 @@
 # misc
-
 Random notes...
 
 ```bash
-
 cargo doc --open ---- this will open only the manpages of your current git project
 Ownership BTW ONLY 1 MUTABLE REF to mem is allowed.md
 Ownership Transfer to Functions for Heap stuff like string, but not ints.rs
 reference is like a pointer but always guaranteed to point to valid memory
 SemVer means Semantic versioning like rand 0.8.5.txt
 unwrap() is same as expect() but wo msg
-
 ```
 
-# Ownership-GoodExample(Rust).rs
+# GuessingGame (loop, stdin, match)
+```rust
+use std::cmp::Ordering;
+use std::io;
+use rand::Rng;
+fn main() {
+    println!("Guess the number!");
+    let secret_number = rand::thread_rng().gen_range(1..=100);
+    loop {
+        println!("Please input your guess.");
+        let mut guess = String::new();
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+        println!("You guessed: {guess}");
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            }
+        }
+    }
+}
+```
+
+# Ownership (borrowing)
 ```rust
 fn main() {
     let mut s = String::from("hello");

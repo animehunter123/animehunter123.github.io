@@ -8,7 +8,7 @@ I've grouped the links by what you might want to do—whether you're learning th
 ## 🎓 Rust Language Learning
 
 - [The Rust Programming Language ("The Book")](https://doc.rust-lang.org/book/)  
-  *Classic and official guide – covers everything from syntax to ownership. Every Rustacean recommends starting here! THIS IS MY FAVORITE WEBPAGE*
+  *Classic and official guide – covers everything from syntax to ownership. Every Rustacean recommends starting here! THIS IS MY FAVORITE WEBPAGE!!!!!!!!!!!*
 
 - [Comprehensive Rust (Google)](https://github.com/google/comprehensive-rust)  
   *Modern tutorial, widely used at Google and ideal for beginners who want structure and clarity.*

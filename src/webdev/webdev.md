@@ -7,7 +7,7 @@ I've added notes so I remember **what each is best for**.
 
 ## 📚 Learning & Documentation
 
-- [MDN Web Docs](https://developer.mozilla.org) — *The holy grail of web dev references*. Official specs, browser compatibility tables, and detailed documentation for HTML, CSS, JS, APIs, and more.
+- [MDN Web Docs](https://developer.mozilla.org) — *The holy grail of web dev references!!!!!!!!!! ALWAYS USE THI, i just type mdn.io in the browser too and it works well just like docs.rs essentially as a BROWSER URL*. Official specs, browser compatibility tables, and detailed documentation for HTML, CSS, JS, APIs, and more.
 
 - [The Modern JavaScript Tutorial](https://javascript.info/) — *Start from scratch and master JavaScript*, from fundamentals to advanced concepts like OOP, the DOM, and events.
 
