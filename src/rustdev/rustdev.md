@@ -1,4 +1,4 @@
-# 🦀 rustdev
+# 🦀 rustdev 🦀
 
 These are little cool things I found on my Rust journey. Imho these are **best-in-class tutorials, frameworks, and community-curated guides**.
 I've grouped the links by what you might want to do—whether you're learning the language, building web apps, or exploring advanced topics.
@@ -8,8 +8,10 @@ I've grouped the links by what you might want to do—whether you're learning th
 ## 🎓 Rust Language Learning
 
 - [The Rust Programming Language ("The Book")](https://doc.rust-lang.org/book/)  
-  *Classic and official guide – covers everything from syntax to ownership. Every Rustacean recommends starting here! THIS IS MY FAVORITE WEBPAGE!!!!!!!!!!!*
-
+  *Classic and official guide – covers everything from syntax to ownership. Every Rustacean recommends starting here! THIS IS THE  WEBPAGE!!!!!!!!!!!*
+  Remember you can just do...
+  `rustup doc --book`
+  
 - [Comprehensive Rust (Google)](https://github.com/google/comprehensive-rust)  
   *Modern tutorial, widely used at Google and ideal for beginners who want structure and clarity.*
 
@@ -29,10 +31,8 @@ I've grouped the links by what you might want to do—whether you're learning th
 - [Axum](https://github.com/tokio-rs/axum)  
   *Modern, type-safe framework from the authors of Tokio. Clean API, async/await powered, and great for scalable services.*
 
-- [Rocket](https://rocket.rs/)  
-  *Focuses on ergonomics and safety—easy for rapid prototyping and robust web APIs.*
 
-- [Tide](https://github.com/http-rs/tide)  
+- [Leptos](https://github.com/leptos-rs/leptos)  
   *Minimalist and intuitive – good for beginners or hobby projects wanting a quick start.*
 
 - [Loco](https://loco.rs/)  

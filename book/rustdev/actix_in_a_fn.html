@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>sample-code-examples - animehunter123&#x27;s github homepage</title>
+        <title>actix_in_a_fn.rs - animehunter123&#x27;s github homepage</title>
 
 
         <!-- Custom HTML head -->
@@ -175,80 +175,37 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="misc"><a class="header" href="#misc">misc</a></h1>
-<p>Random notes...</p>
-<pre><code class="language-bash">cargo doc --open ---- this will open only the manpages of your current git project
-Ownership BTW ONLY 1 MUTABLE REF to mem is allowed.md
-Ownership Transfer to Functions for Heap stuff like string, but not ints.rs
-reference is like a pointer but always guaranteed to point to valid memory
-SemVer means Semantic versioning like rand 0.8.5.txt
-unwrap() is same as expect() but wo msg
+                        <h1 id="actix_in_a_fnrs"><a class="header" href="#actix_in_a_fnrs">actix_in_a_fn.rs</a></h1>
+<pre><code class="language-rs">// Imports
+use actix_web::{App, HttpResponse, HttpServer, web};
+
+// Main function, literally all in one func, this is pretty cool for the lazy!
+// There are 2 closures here for actix_web v4 in this example!
+#[actix_web::main]
+async fn main() {
+    println!("Hello, world!");
+    HttpServer::new(|| {
+        App::new()
+            .route("/", web::get().to(|| async {
+                HttpResponse::Ok().body("hi, from main() lol!".to_string())
+            }))
+    })
+        .bind("0.0.0.0:80")
+        .unwrap()
+        .run()
+        .await
+        .unwrap()
+}
 </code></pre>
-<h1 id="guessinggame-loop-stdin-match"><a class="header" href="#guessinggame-loop-stdin-match">GuessingGame (loop, stdin, match)</a></h1>
-<pre><pre class="playground"><code class="language-rust">// GuessingGame! NOTE: run "cargo add rand" with rust edition 2024 to add the rand crate, confirm with toml, but future might not work with below code. 2021 used the "use rand::Rng;" but rust edition 2024 no longer needs a use import. (I think).
-use std::cmp::Ordering;
-use std::io;
-fn main() {
-    println!("Guess the number (from 1 to 100!");
-    let secret_number = rand::random_range(1..=100);
-    loop {
-        println!("Please input your guess.");
-        let mut guess = String::new();
-        io::stdin()
-            .read_line(&amp;mut guess)
-            .expect("Failed to read line");
-        let guess: u32 = match guess.trim().parse() {
-            Ok(num) =&gt; num,
-            Err(_) =&gt; { println!("Please type a number i32!"); continue; },
-        };
-        println!("You guessed: {guess}");
-        match guess.cmp(&amp;secret_number) {
-            Ordering::Less =&gt; println!("Too small!"),
-            Ordering::Greater =&gt; println!("Too big!"),
-            Ordering::Equal =&gt; {
-                println!("You win!");
-                break;
-            }
-        }
-    }
-}</code></pre></pre>
-<h1 id="ownership-borrowing"><a class="header" href="#ownership-borrowing">Ownership (borrowing)</a></h1>
-<pre><pre class="playground"><code class="language-rust">fn main() {
-    let mut s = String::from("hello");
-    let r1 = &amp;s; // no problem
-    let r2 = &amp;s; // no problem
-    println!("{r1} and {r2}");
-    println!("{r1} and {r2}");
-    // Variables r1 and r2 will not be used after this point.
-    let r3 = &amp;mut s; // no problem
-    println!("{r3}");
-    let r4 = &amp;s; // no problem
-    println!("{r4}");
-    println!("{r1} and {r2}"); //CANT USE BECAUSE ONCE YOU MAKE A MUT REF, IT CLOSD THE SCOP OF ALL
-    //PREVIOUS REFS SO NOW YOU NEED TO MAKE A NEW REF MOVING FORWARD
-}</code></pre></pre>
-<h1 id="celciustofarenheightrs"><a class="header" href="#celciustofarenheightrs">CelciusToFarenheight.rs</a></h1>
-<pre><pre class="playground"><code class="language-rust">use rand::Rng;
-fn main() {
-    println!("enter celcius...");
-    let mut target = String::new();
-    std::io::stdin().read_line(&amp;mut target).expect("io error");
-    let target: f32 = target.trim().parse().expect("cant convert to FARENHEIGHT!");
-    let faren = (target * 9.0 / 5.0) + 32.0;
-    println!("Ok in FARENHEIGHT it is... {faren}");
-}</code></pre></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../rustdev/rustdev.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../rustdev/celc_to_fahr.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../rustdev/how-to-navigate-rust-docs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -256,13 +213,10 @@ fn main() {
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../rustdev/rustdev.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../rustdev/celc_to_fahr.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../rustdev/how-to-navigate-rust-docs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
             </nav>
 
         </div>
