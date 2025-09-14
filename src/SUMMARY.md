@@ -11,3 +11,4 @@
     - [ownership.rs](rustdev/ownership.md)
     - [celc_to_fahr.rs](rustdev/celc_to_fahr.md)
     - [actix_in_a_fn.rs](rustdev/actix_in_a_fn.md)
+    - [encode_a_msg.rs](rustdev/encode_a_msg.md)

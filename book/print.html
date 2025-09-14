@@ -404,6 +404,19 @@ async fn main() {
         .unwrap()
 }
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="encode_a_msgrs"><a class="header" href="#encode_a_msgrs">encode_a_msg.rs</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// This was a cool example from https://doc.rust-lang.org/std/iter/trait.Iterator.html
+let chars = ['g', 'd', 'k', 'k', 'n'];
+
+let hello: String = chars.into_iter()
+    .map(|x| x as u8)
+    .map(|x| (x + 1) as char)
+    .collect();
+
+assert_eq!("hello", hello);
+<span class="boring">}</span></code></pre></pre>
 
                     </main>
 
