@@ -359,27 +359,14 @@ let hello: String = chars.into_iter()
 assert_eq!("hello", hello);
 <span class="boring">}</span></code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="actix_in_a_fnrs"><a class="header" href="#actix_in_a_fnrs">actix_in_a_fn.rs</a></h1>
-<pre><code class="language-rs">// Imports
-use actix_web::{App, HttpResponse, HttpServer, web};
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let condition = true;
+    let condition = false;
+    let condition = 12414214 + 2412; // Bad b/c IFLET needs a BOOL!
+    let number = if condition { 5 } else { 6 };
 
-// Main function, literally all in one func, this is pretty cool for the lazy!
-// There are 2 closures here for actix_web v4 in this example!
-#[actix_web::main]
-async fn main() {
-    println!("Hello, world!");
-    HttpServer::new(|| {
-        App::new()
-            .route("/", web::get().to(|| async {
-                HttpResponse::Ok().body("hi, from main() lol!".to_string())
-            }))
-    })
-        .bind("0.0.0.0:80")
-        .unwrap()
-        .run()
-        .await
-        .unwrap()
-}
-</code></pre>
+    println!("The value of number is: {number}");
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="hashmap_to_count_word_occurencesrs"><a class="header" href="#hashmap_to_count_word_occurencesrs">hashmap_to_count_word_occurences.rs</a></h1>
 <p>Basically a hashmap is a key and value hash table.</p>
 <p>The keys are unique, and the rust stdlib is pretty aweseome!!!</p>
