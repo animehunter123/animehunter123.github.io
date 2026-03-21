@@ -25,3 +25,13 @@ fn main() {
     println!("ok word count is... {:#?}", hash01);
 }
 ```
+
+For fun, in python this woulda beeen...
+
+```python
+sentence = "apple banana apple cherry banana apple"
+word_counts = {}
+
+for word in sentence.split():
+    word_counts[word] = word_counts.get(word, 0) + 1
+```
