@@ -12,7 +12,7 @@ Thanks kindly!
 # Misc (How to edit the mdbook!)
 * Run command: ```cargo install mdbook && mdbook serve``` to generate ./book HTMLs.
 * Edit/Add Notes into Markdown Files in ./src ONLY **WHILE `mdbook serve` IS RUNNING!!!!!**
-* Then vi the SUMMARY.md or book.toml, and it will update left menu bar in real time, and create new md files in the menu bar.
+* Then re-order left side links, via SUMMARY.md or book.toml, and it will update left menu bar in real time, and create new md files in the menu bar.
 * Now, mdbook serve, should have updated the searchindex.js based on your markdown edits etc, so ctrl+c to close mdbook, and git commit em up!
 
 # Keyboard Shortcuts ⌨️

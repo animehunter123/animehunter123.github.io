@@ -185,7 +185,7 @@
 <ul>
 <li>Run command: <code>cargo install mdbook &amp;&amp; mdbook serve</code> to generate ./book HTMLs.</li>
 <li>Edit/Add Notes into Markdown Files in ./src ONLY <strong>WHILE <code>mdbook serve</code> IS RUNNING!!!!!</strong></li>
-<li>Then vi the SUMMARY.md or book.toml, and it will update left menu bar in real time, and create new md files in the menu bar.</li>
+<li>Then re-order left side links, via SUMMARY.md or book.toml, and it will update left menu bar in real time, and create new md files in the menu bar.</li>
 <li>Now, mdbook serve, should have updated the searchindex.js based on your markdown edits etc, so ctrl+c to close mdbook, and git commit em up!</li>
 </ul>
 <h1 id="keyboard-shortcuts-"><a class="header" href="#keyboard-shortcuts-">Keyboard Shortcuts ⌨️</a></h1>
@@ -268,8 +268,9 @@ I've added notes so I remember <strong>what each is best for</strong>.</p>
 </ul>
 <p>I think thats about it!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="-rustdev-"><a class="header" href="#-rustdev-">🦀 rustdev 🦀</a></h1>
-<p>These are little cool things I found on my Rust journey. Imho these are <strong>best-in-class tutorials, frameworks, and community-curated guides</strong>.
-I've grouped the links by what you might want to do—whether you're learning the language, building web apps, or exploring advanced topics.</p>
+<p>These are little cool things I found on my Rust journey. Imho these are <strong>best-in-class tutorials, frameworks, and community-curated guides</strong>.</p>
+<p>First, only start with THIS COMMAND: rustup doc --book</p>
+<p>Next use the rust official book, and compile on anything like a phone.</p>
 <hr />
 <h2 id="-rust-language-learning"><a class="header" href="#-rust-language-learning">🎓 Rust Language Learning</a></h2>
 <ul>
@@ -297,42 +298,19 @@ Remember you can just do...
 <ul>
 <li>
 <p><a href="https://actix.rs/">Actix Web</a><br />
-<em>Blazing fast, production-ready web framework. High performance, async-ready, and widely used in high-load scenarios.</em></p>
+This is cool, pair it with Tera... you got yourself a flask+jinja thing.</p>
 </li>
 <li>
 <p><a href="https://github.com/tokio-rs/axum">Axum</a><br />
-<em>Modern, type-safe framework from the authors of Tokio. Clean API, async/await powered, and great for scalable services.</em></p>
+Made by Tokio... looks cool</p>
 </li>
 <li>
 <p><a href="https://github.com/leptos-rs/leptos">Leptos</a><br />
-<em>Minimalist and intuitive – good for beginners or hobby projects wanting a quick start.</em></p>
-</li>
-<li>
-<p><a href="https://loco.rs/">Loco</a><br />
-<em>New full-stack framework inspired by Rails—batteries included, great for CRUD-heavy web apps.</em></p>
+<em>Minimalist and intuitive – good for beginners or hobby projects wanting a quick start.</em>
+Seems Reactish, really cool. But still need to study Typescript regardless.</p>
 </li>
 </ul>
 <hr />
-<h2 id="-practice--projects"><a class="header" href="#-practice--projects">🧩 Practice &amp; Projects</a></h2>
-<ul>
-<li><a href="https://codecrafters.io/tracks/rust">CodeCrafters — Real-world Rust Projects</a><br />
-<em>Build real systems (HTTP server, Redis, Git) from scratch. Step-by-step practice for intermediate and advanced learners.</em></li>
-</ul>
-<hr />
-<h2 id="-extra-inspiration"><a class="header" href="#-extra-inspiration">💡 Extra Inspiration</a></h2>
-<ul>
-<li>
-<p><a href="https://blog.logrocket.com/top-rust-web-frameworks/">LogRocket — Exploring the top Rust web frameworks</a><br />
-<em>Quick breakdown and comparison of popular frameworks in 2025—ideal for making decisions between Actix, Rocket, Axum, and more.</em></p>
-</li>
-<li>
-<p><a href="https://www.youtube.com/watch?v=twpdAOLUgw0">How to Choose a Rust Web Framework (YouTube)</a><br />
-<em>Video guide discussing the pros and cons of the main frameworks—covers beginner to expert preferences.</em></p>
-</li>
-</ul>
-<hr />
-<p>🔔 <strong>Tip:</strong> Try building a tiny web API in <em>each framework</em> to see which fits your style.<br />
-Bookmark these, stay curious, and dig into community discussions—Rust moves fast, so keeping your notes up-to-date is key!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="basic_rust_notesmd"><a class="header" href="#basic_rust_notesmd">basic_rust_notes.md</a></h1>
 <p>Random notes...</p>
 <pre><code class="language-bash">cargo doc --open ---- this will open only the manpages of your current git project
@@ -357,21 +335,6 @@ unwrap() is same as expect() but wo msg
     println!("{r0} and {r2}"); //CANT USE BECAUSE ONCE YOU MAKE A MUT REF, IT CLOSD THE SCOP OF ALL
     //PREVIOUS REFS SO NOW YOU NEED TO MAKE A NEW REF MOVING FORWARD
 }</code></pre></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="ownershiprs"><a class="header" href="#ownershiprs">ownership.rs</a></h1>
-<pre><pre class="playground"><code class="language-rust">fn main() {
-    let mut s = String::from("hello");
-    let r0 = &amp;s; // no problem
-    let r1 = &amp;s; // no problem
-    println!("{r0} and {r2}");
-    println!("{r0} and {r2}");
-    // Variables r0 and r2 will not be used after this point.
-    let r2 = &amp;mut s; // no problem
-    println!("{r2}");
-    let r3 = &amp;s; // no problem
-    println!("{r3}");
-    println!("{r0} and {r2}"); //CANT USE BECAUSE ONCE YOU MAKE A MUT REF, IT CLOSD THE SCOP OF ALL
-    //PREVIOUS REFS SO NOW YOU NEED TO MAKE A NEW REF MOVING FORWARD
-}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="celc_to_fahrrs"><a class="header" href="#celc_to_fahrrs">celc_to_fahr.rs</a></h1>
 <pre><pre class="playground"><code class="language-rust">use rand::Rng;
 fn main() {
@@ -382,6 +345,19 @@ fn main() {
     let faren = (target * 9.0 / 5.0) + 32.0;
     println!("Ok in FARENHEIGHT it is... {faren}");
 }</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="encode_a_msgrs"><a class="header" href="#encode_a_msgrs">encode_a_msg.rs</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// This was a cool example from https://doc.rust-lang.org/std/iter/trait.Iterator.html
+let chars = ['g', 'd', 'k', 'k', 'n'];
+
+let hello: String = chars.into_iter()
+    .map(|x| x as u8)
+    .map(|x| (x + 1) as char)
+    .collect();
+
+assert_eq!("hello", hello);
+<span class="boring">}</span></code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="actix_in_a_fnrs"><a class="header" href="#actix_in_a_fnrs">actix_in_a_fn.rs</a></h1>
 <pre><code class="language-rs">// Imports
 use actix_web::{App, HttpResponse, HttpServer, web};
@@ -404,19 +380,27 @@ async fn main() {
         .unwrap()
 }
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="encode_a_msgrs"><a class="header" href="#encode_a_msgrs">encode_a_msg.rs</a></h1>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>// This was a cool example from https://doc.rust-lang.org/std/iter/trait.Iterator.html
-let chars = ['g', 'd', 'k', 'k', 'n'];
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hashmap_to_count_word_occurencesrs"><a class="header" href="#hashmap_to_count_word_occurencesrs">hashmap_to_count_word_occurences.rs</a></h1>
+<p>Basically a hashmap is a key and value hash table.</p>
+<p>The keys are unique, and the rust stdlib is pretty aweseome!!!</p>
+<p>Check out this simple prompter app, you give it a sentence and it counts the words... (randomly each time, b/c the HashMap is using Quadratic Probing and SIMD lookup stuff). Really cool stdlib source code! See: <a href="https://doc.rust-lang.org/std/collections/struct.HashMap.html">https://doc.rust-lang.org/std/collections/struct.HashMap.html</a>.</p>
+<p>Here is my example, really good practice with my favorite <code>std::io::stdin()</code></p>
+<pre><code class="language-rs">fn main() {
+    println!("give me a sentence, ill count the words");
 
-let hello: String = chars.into_iter()
-    .map(|x| x as u8)
-    .map(|x| (x + 1) as char)
-    .collect();
+    let mut buf = String::new();
+    std::io::stdin().read_line(&amp;mut buf).expect("read error");
 
-assert_eq!("hello", hello);
-<span class="boring">}</span></code></pre></pre>
+    let mut hash01 = std::collections::HashMap::new();
+
+    for word in buf.split_whitespace() {
+        // check this out, its cool. * is basically a C++ pointer!
+        *hash01.entry(word).or_insert(0) += 1;
+    }
+
+    println!("ok word count is... {:#?}", hash01);
+}
+</code></pre>
 
                     </main>
 
