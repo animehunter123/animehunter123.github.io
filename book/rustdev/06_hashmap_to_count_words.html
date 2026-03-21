@@ -180,7 +180,7 @@
 <p>The keys are unique, and the rust stdlib is pretty aweseome!!!</p>
 <p>Check out this simple prompter app, you give it a sentence and it counts the words... (randomly each time, b/c the HashMap is using Quadratic Probing and SIMD lookup stuff). Really cool stdlib source code! See: <a href="https://doc.rust-lang.org/std/collections/struct.HashMap.html">https://doc.rust-lang.org/std/collections/struct.HashMap.html</a>.</p>
 <p>Here is my example, really good practice with my favorite <code>std::io::stdin()</code></p>
-<pre><code class="language-rs">fn main() {
+<pre><pre class="playground"><code class="language-rust">fn main() {
     println!("give me a sentence, ill count the words");
 
     let mut buf = String::new();
@@ -194,8 +194,7 @@
     }
 
     println!("ok word count is... {:#?}", hash01);
-}
-</code></pre>
+}</code></pre></pre>
 
                     </main>
 

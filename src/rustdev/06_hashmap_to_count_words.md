@@ -8,7 +8,7 @@ Check out this simple prompter app, you give it a sentence and it counts the wor
 
 Here is my example, really good practice with my favorite ```std::io::stdin()```
 
-```rs
+```rust
 fn main() {
     println!("give me a sentence, ill count the words");
 
