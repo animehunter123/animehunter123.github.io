@@ -358,7 +358,8 @@ let hello: String = chars.into_iter()
 
 assert_eq!("hello", hello);
 <span class="boring">}</span></code></pre></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="actix_in_a_fnrs"><a class="header" href="#actix_in_a_fnrs">actix_in_a_fn.rs</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="if_letrs"><a class="header" href="#if_letrs">if_let.rs</a></h1>
+<p>In rust you can do if condition</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let condition = true;
     let condition = false;
@@ -367,6 +368,30 @@ assert_eq!("hello", hello);
 
     println!("The value of number is: {number}");
 }</code></pre></pre>
+<p>Or...</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let letter: Option&lt;i32&gt; = None;
+    if let Some(i) = letter {
+        println!("Matched {:?}!", i);
+    } else {
+        println!("No number, using letter instead!");  // This runs
+    }
+}</code></pre></pre>
+<p>Or with a ENUM!!!!!!</p>
+<pre><pre class="playground"><code class="language-rust">#[derive(Debug)]
+enum Foo {
+    Bar,
+    Baz,
+    Qux(u32),
+}
+
+fn main() {
+    let c = Foo::Qux(100);
+    if let Foo::Qux(value) = c {
+        println!("c is {}", value);  // Outputs: c is 100
+    }
+}
+</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="hashmap_to_count_word_occurencesrs"><a class="header" href="#hashmap_to_count_word_occurencesrs">hashmap_to_count_word_occurences.rs</a></h1>
 <p>Basically a hashmap is a key and value hash table.</p>
 <p>The keys are unique, and the rust stdlib is pretty aweseome!!!</p>

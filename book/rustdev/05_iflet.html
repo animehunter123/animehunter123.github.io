@@ -175,7 +175,8 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="actix_in_a_fnrs"><a class="header" href="#actix_in_a_fnrs">actix_in_a_fn.rs</a></h1>
+                        <h1 id="if_letrs"><a class="header" href="#if_letrs">if_let.rs</a></h1>
+<p>In rust you can do if condition</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let condition = true;
     let condition = false;
@@ -184,6 +185,30 @@
 
     println!("The value of number is: {number}");
 }</code></pre></pre>
+<p>Or...</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let letter: Option&lt;i32&gt; = None;
+    if let Some(i) = letter {
+        println!("Matched {:?}!", i);
+    } else {
+        println!("No number, using letter instead!");  // This runs
+    }
+}</code></pre></pre>
+<p>Or with a ENUM!!!!!!</p>
+<pre><pre class="playground"><code class="language-rust">#[derive(Debug)]
+enum Foo {
+    Bar,
+    Baz,
+    Qux(u32),
+}
+
+fn main() {
+    let c = Foo::Qux(100);
+    if let Foo::Qux(value) = c {
+        println!("c is {}", value);  // Outputs: c is 100
+    }
+}
+</code></pre></pre>
 
                     </main>
 
