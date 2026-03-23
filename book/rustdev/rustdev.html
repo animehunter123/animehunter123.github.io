@@ -177,48 +177,60 @@
                     <main>
                         <h1 id="-rustdev-"><a class="header" href="#-rustdev-">🦀 rustdev 🦀</a></h1>
 <p>These are little cool things I found on my Rust journey. Imho these are <strong>best-in-class tutorials, frameworks, and community-curated guides</strong>.</p>
-<p>First, only start with THIS COMMAND: rustup doc --book</p>
-<p>Next use the rust official book, and compile on anything like a phone.</p>
+<p>BEST COMMAND TO LEARN: rustup doc --book</p>
 <hr />
 <h2 id="-rust-language-learning"><a class="header" href="#-rust-language-learning">🎓 Rust Language Learning</a></h2>
 <ul>
-<li>
-<p><a href="https://doc.rust-lang.org/book/">The Rust Programming Language ("The Book")</a><br />
-<em>Classic and official guide – covers everything from syntax to ownership. Every Rustacean recommends starting here! THIS IS THE  WEBPAGE!!!!!!!!!!!</em>
-Remember you can just do...
-<code>rustup doc --book</code></p>
-</li>
-<li>
-<p><a href="https://github.com/google/comprehensive-rust">Comprehensive Rust (Google)</a><br />
-<em>Modern tutorial, widely used at Google and ideal for beginners who want structure and clarity.</em></p>
-</li>
-<li>
-<p><a href="https://github.com/rust-unofficial/awesome-rust">rust-unofficial/awesome-rust</a><br />
-<em>A huge, community-curated resource list. Find tutorials, examples, and crates for any Rust topic.</em></p>
-</li>
-<li>
-<p><a href="https://roadmap.sh/rust">Roadmap.sh - Learn to become a Rust Developer</a><br />
-<em>Interactive, community-powered roadmap with best practices, projects, and articles. Great for self-starters.</em></p>
-</li>
-</ul>
-<hr />
-<h2 id="-web-development-frameworks--guides"><a class="header" href="#-web-development-frameworks--guides">🌐 Web Development Frameworks &amp; Guides</a></h2>
-<ul>
-<li>
-<p><a href="https://actix.rs/">Actix Web</a><br />
-This is cool, pair it with Tera... you got yourself a flask+jinja thing.</p>
-</li>
-<li>
-<p><a href="https://github.com/tokio-rs/axum">Axum</a><br />
-Made by Tokio... looks cool</p>
-</li>
-<li>
-<p><a href="https://github.com/leptos-rs/leptos">Leptos</a><br />
+<li><a href="https://doc.rust-lang.org/book/">The Rust Programming Language ("The Book")</a></li>
+<li><a href="https://actix.rs/">Actix Web</a>  This is cool, pair it with Tera... you got yourself a flask+jinja thing.</li>
+<li><a href="https://github.com/tokio-rs/axum">Axum</a>  Made by Tokio... looks cool</li>
+<li><a href="https://github.com/leptos-rs/leptos">Leptos</a><br />
 <em>Minimalist and intuitive – good for beginners or hobby projects wanting a quick start.</em>
-Seems Reactish, really cool. But still need to study Typescript regardless.</p>
-</li>
+Seems Reactish, really cool. But still need to study Typescript regardless.</li>
 </ul>
 <hr />
+<p>@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@</p>
+<h1 id="from-this-course"><a class="header" href="#from-this-course">From this course:</a></h1>
+<p>rust_my_notes.md
+Using my rust Udemy Course: Master the rust programmlanguage A-Z
+https://lmrms.udemy.com/course/learn-to-code-with-rust/learn/lecture/46619855#overview</p>
+<h1 id="import-another-func-from-a-file-from-inside-mainrs-with-pooprs-in-samedir"><a class="header" href="#import-another-func-from-a-file-from-inside-mainrs-with-pooprs-in-samedir">Import another func from a file (from inside main.rs, with ./poop.rs in samedir)</a></h1>
+<p>mod poop; // from inside main.rs, tell rust about other mod
+use poop::Poop; // Import my other pub Poop "type" or "struct"</p>
+<h1 id="type-alias"><a class="header" href="#type-alias">Type Alias</a></h1>
+<p>Type Alias in Rust means just a alias:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>type Bits = u32;
+let myI32 : Bits = 32;
+let myf64 : Bits = 64;
+<span class="boring">}</span></code></pre></pre>
+<h1 id="compiler-directivesd"><a class="header" href="#compiler-directivesd">Compiler DirectivesD</a></h1>
+<p>Compiler Directive applies to A SINGLE LINE or block:</p>
+<pre><pre class="playground"><code class="language-rust">#[allow(unused_variables)]
+fn blah () {}
+
+#![allow(unused_variables)]
+fn main(){} fn blah(){} etc... // #![] is for the whole file</code></pre></pre>
+<h1 id="isizeusize--are-nicknames-for-built-in-types-depending-on-computer"><a class="header" href="#isizeusize--are-nicknames-for-built-in-types-depending-on-computer">isize/usize = are nicknames for built in types depending on computer</a></h1>
+<p>To basically let it pick a u8 or u16 if you have big compooter...
+let x: u64 = 15_000_000;   // Btw, _'s are ignored, this is 15 million.
+let y: usize = 15_000_000; // See how it is usize? the compoooter will pik it.</p>
+<h1 id="rust-raw-string-to-ignore-all-backslashes"><a class="header" href="#rust-raw-string-to-ignore-all-backslashes">rust raw string to ignore all backslashes</a></h1>
+<p>lets x = r"blah blah C:\blah no new line \n haha!";</p>
+<h1 id="println-format-specifier"><a class="header" href="#println-format-specifier">println format specifier</a></h1>
+<p>Customize the printed representation of the interpolated value.
+let x: i32 = 50.13515212;
+pln("{x:.2}"); // only 2 decidimal places</p>
+<h1 id="cast-a-i32-to-i8"><a class="header" href="#cast-a-i32-to-i8">cast a i32 to i8</a></h1>
+<p>let my32: i32 = 50;
+let my8: i8 = my32 as i8; // "as i8" is the cast! BTW, can overflow to 255.</p>
 
                     </main>
 
