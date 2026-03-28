@@ -12,3 +12,4 @@
     - [encode_a_msg.rs](rustdev/04_encode_a_msg_via_closure_anonfunc.md)
     - [if_let.rs](rustdev/05_iflet.md)
     - [hashmap_count_words.rs](rustdev/06_hashmap_to_count_words.md)
+    - [longest_word_borrow_heap.rs](rustdev/07_longest_word_borrow.md)

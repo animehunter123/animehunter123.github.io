@@ -431,6 +431,22 @@ word_counts = {}
 for word in sentence.split():
     word_counts[word] = word_counts.get(word, 0) + 1
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="this-comment-can-be-uncommented-to-get-both-the-slice-or-heap-string-version"><a class="header" href="#this-comment-can-be-uncommented-to-get-both-the-slice-or-heap-string-version">This comment can be uncommented to get both the slice or heap String version!</a></h1>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    println!("Enter a sentence, and ill tell you longest word...");
+    let mut io_buf = String::new();
+    std::io::stdin().read_line(&amp;mut io_buf).expect("io error");
+
+    //let test = "ka jdslgkjas dglkja skgdj alskjg aksjhdglkasjhdg"; // &lt;-- a str slice
+    let test = io_buf; // &lt;-- a String
+    let mut buf_slice = "";
+    for i in test.split_whitespace() {
+        if buf_slice.len() &lt; i.len() {
+            buf_slice = i;
+        }
+    }
+    println!("ok longest word was... {}", buf_slice);
+}</code></pre></pre>
 
                     </main>
 
