@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>guessing_game.rs - animehunter123&#x27;s github homepage</title>
+        <title>borrow_only_once.rs - animehunter123&#x27;s github homepage</title>
 
 
         <!-- Custom HTML head -->
@@ -175,7 +175,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="guessing_gamers"><a class="header" href="#guessing_gamers">guessing_game.rs</a></h1>
+                        <h1 id="02_borrow_only_oncemd"><a class="header" href="#02_borrow_only_oncemd">02_borrow_only_once.md</a></h1>
 <pre><pre class="playground"><code class="language-rust">fn main() {
     let mut s = String::from("hello");
     let r0 = &amp;s; // no problem
@@ -187,8 +187,8 @@
     println!("{r2}");
     let r3 = &amp;s; // no problem
     println!("{r3}");
-    println!("{r0} and {r2}"); //CANT USE BECAUSE ONCE YOU MAKE A MUT REF, IT CLOSD THE SCOP OF ALL
-    //PREVIOUS REFS SO NOW YOU NEED TO MAKE A NEW REF MOVING FORWARD
+    println!("{r0} and {r2}"); //CANT USE BECAUSE ONCE YOU MAKE A MUT REF, IT CLOSD THE SCOPE OF ALL
+    //PREVIOUS REFS SO NOW YOU NEED TO MAKE A NEW REF MOVING FORWARD!!!!!
 }</code></pre></pre>
 
                     </main>

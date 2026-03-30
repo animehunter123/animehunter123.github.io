@@ -7,7 +7,7 @@
 
 - [rustdev](rustdev/rustdev.md)
     - [basic_rust_notes.md](rustdev/01_basic_rust_notes.md)
-    - [guessing_game.rs](rustdev/02_guessing_game.md)
+    - [borrow_only_once.rs](rustdev/02_borrow_only_once.md)
     - [celc_to_fahr.rs](rustdev/03_celc_to_fahr.md)
     - [encode_a_msg.rs](rustdev/04_encode_a_msg_via_closure_anonfunc.md)
     - [if_let.rs](rustdev/05_iflet.md)

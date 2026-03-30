@@ -1,4 +1,4 @@
-# guessing_game.rs
+# 02_borrow_only_once.md
 ```rust
 fn main() {
     let mut s = String::from("hello");
@@ -11,7 +11,7 @@ fn main() {
     println!("{r2}");
     let r3 = &s; // no problem
     println!("{r3}");
-    println!("{r0} and {r2}"); //CANT USE BECAUSE ONCE YOU MAKE A MUT REF, IT CLOSD THE SCOP OF ALL
-    //PREVIOUS REFS SO NOW YOU NEED TO MAKE A NEW REF MOVING FORWARD
+    println!("{r0} and {r2}"); //CANT USE BECAUSE ONCE YOU MAKE A MUT REF, IT CLOSD THE SCOPE OF ALL
+    //PREVIOUS REFS SO NOW YOU NEED TO MAKE A NEW REF MOVING FORWARD!!!!!
 }
 ```
