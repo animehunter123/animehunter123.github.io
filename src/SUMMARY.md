@@ -11,6 +11,6 @@
     - [celc_to_fahr.rs](rustdev/03_celc_to_fahr.md)
     - [encode_a_msg.rs](rustdev/04_encode_a_msg_via_closure_anonfunc.md)
     - [if_let.rs](rustdev/05_iflet.md)
-    - [hashmap_count_words.rs](rustdev/06_hashmap_to_count_words.md)
+    - [hashmap_notes.rs](rustdev/06_hashmap_notes.md)
     - [longest_word_borrow_heap.rs](rustdev/07_longest_word_borrow.md)
     - [concatenate_a_str.rs](rustdev/08_concatenate_a_str.md)

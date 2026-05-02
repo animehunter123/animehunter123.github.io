@@ -405,6 +405,7 @@ fn main() {
 }
 </code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="hashmap_to_count_word_occurencesrs"><a class="header" href="#hashmap_to_count_word_occurencesrs">hashmap_to_count_word_occurences.rs</a></h1>
+<p>NOTE <code>The bottom of this file has a really good hashmap with vector in it example!!!</code></p>
 <p>Basically a hashmap is a key and value hash table.</p>
 <p>The keys are unique, and the rust stdlib is pretty aweseome!!!</p>
 <p>Check out this simple prompter app, you give it a sentence and it counts the words... (randomly each time, b/c the HashMap is using Quadratic Probing and SIMD lookup stuff). Really cool stdlib source code! See: <a href="https://doc.rust-lang.org/std/collections/struct.HashMap.html">https://doc.rust-lang.org/std/collections/struct.HashMap.html</a>.</p>
@@ -431,6 +432,77 @@ word_counts = {}
 for word in sentence.split():
     word_counts[word] = word_counts.get(word, 0) + 1
 </code></pre>
+<h1 id="important-the-book-had-this-excersize-at-the-end-of-chapter-8-and-its-really-good-to-do-over-and-over-to-practice"><a class="header" href="#important-the-book-had-this-excersize-at-the-end-of-chapter-8-and-its-really-good-to-do-over-and-over-to-practice">IMPORTANT: The book had this excersize at the end of chapter 8, and its really good to do over and over to practice...</a></h1>
+<p>Using a hash map and vectors, create a text interface to allow a user to add employee names to a department in a company; for example, “Add Sally to Engineering” or “Add Amir to Sales.” Then, let the user retrieve a list of all people in a department or all people in the company by department, sorted alphabetically.</p>
+<p>Example code that needs to be refactored, but at least works:</p>
+<pre><pre class="playground"><code class="language-rust">#[allow(unused_variables)]
+use std::collections::HashMap;
+
+fn main() {
+    println!("This app will create a hashmap... Get ready!");
+    let mut hashmap01 : HashMap&lt;String, Vec&lt;String&gt;&gt; = HashMap::new();
+    let mut buf = String::new();
+    loop {
+        println!(
+            r#"
+Main Menu:
+1. Add Employee to a Department
+2. Print the Hash
+3. Print empl in a specific dept...
+4. Exit
+            "#
+        );
+        std::io::stdin().read_line(&amp;mut buf).expect("read errorrr");
+        let choice: u8 = buf.trim().parse().expect("parse errrorr..");
+        match choice {
+            1 =&gt; { add_to_hashmap(&amp;mut hashmap01) },
+            2 =&gt; { dbg!(&amp;hashmap01);  },
+            3 =&gt; { print_emp_from_selected_dept(&amp;mut hashmap01); },
+            _ =&gt; { println!("try again... ")},
+        }
+        buf.clear();
+    }
+}
+
+fn print_emp_from_selected_dept(hashmap01 : &amp;mut HashMap&lt;String,Vec&lt;String&gt;&gt;) {
+    let mut buf = String::new();
+    println!("Enter a department...");
+    std::io::stdin().read_line(&amp;mut buf).expect("coudlnt read dept..");
+    let dept = buf.trim();
+
+    match hashmap01.get(dept) {
+        Some(names) =&gt; {
+            println!("found these people...");
+            println!("{names:?}");
+        },
+        None =&gt; {
+            println!("no people found");
+        }
+    }
+}
+
+fn add_to_hashmap (hashmap01 : &amp;mut HashMap&lt;String,Vec&lt;String&gt;&gt; ) {
+    let mut buf = String::new();
+    println!("enter dept...");
+    std::io::stdin().read_line(&amp;mut buf).expect("couldnt read dept");
+    let dept = buf.clone();
+    buf.clear();
+    println!("enter name...");
+    std::io::stdin().read_line(&amp;mut buf).expect("couldnt read name");
+    let name = buf.clone().trim().to_string();
+    match hashmap01.get(&amp;dept.trim().to_string()) {
+        Some(names) =&gt; { 
+            let mut new_names = names.clone();
+            new_names.push(name);
+            hashmap01.insert(dept.trim().to_string(), new_names);
+        }
+        None =&gt; {
+            let mut new_names = Vec::new();
+            new_names.push(name);
+            hashmap01.insert(dept.trim().to_string(), new_names);
+        },
+    }
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="this-comment-can-be-uncommented-to-get-both-the-slice-or-heap-string-version"><a class="header" href="#this-comment-can-be-uncommented-to-get-both-the-slice-or-heap-string-version">This comment can be uncommented to get both the slice or heap String version!</a></h1>
 <pre><pre class="playground"><code class="language-rust">fn main() {
     println!("Enter a sentence, and ill tell you longest word...");
