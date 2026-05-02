@@ -447,6 +447,21 @@ for word in sentence.split():
     }
     println!("ok longest word was... {}", buf_slice);
 }</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="this-is-how-you-concatenate-2-string-slices"><a class="header" href="#this-is-how-you-concatenate-2-string-slices">This is how you concatenate 2 string slices...</a></h1>
+<pre><pre class="playground"><code class="language-rust">#[allow(unused_variables)]
+fn main() {
+    let s1 = "this is a &amp;str 1...";
+    let s2 = "this is a &amp;str 2...";
+
+    // Both of these ways are ok...
+    let s3 = s1.to_lowercase() + s2;
+    let s4 = s1.to_string() + s2;
+
+    // But... this is another way too..
+    let s5 = format!("{s1}{s2}");
+
+    dbg!(s5);
+}</code></pre></pre>
 
                     </main>
 
