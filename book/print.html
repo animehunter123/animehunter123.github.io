@@ -568,6 +568,32 @@ fn main() {
     };
     dbg!(file);
 }</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="this-is-a-function-which-is-generic-over-type-t-which-must-implement-partialord"><a class="header" href="#this-is-a-function-which-is-generic-over-type-t-which-must-implement-partialord">This is a function which is GENERIC over type T which MUST IMPLEMENT PARTIALORD</a></h1>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let list01 = [1, 2, 4, 6, 3, 77, 3];
+    let largest = find_largest(&amp;list01);
+    let list02 = ['w', 'u', 't'];
+    let largest2 = find_largest(&amp;list02);
+    dbg!(largest);
+    dbg!(largest2);
+}
+
+/* We read this definition as...
+ 
+ “The function largest is generic over some type T.” 
+ 
+ This function has one parameter named list, which is a 
+ slice of values of type T. The largest function will 
+ return a reference to a value of the same type T. */
+fn find_largest&lt;T: std::cmp::PartialOrd&gt;(numlist: &amp;[T]) -&gt; &amp;T {
+    let mut largest = &amp;numlist[0];
+    for i in numlist {
+        if largest &lt; i {
+            largest = i;
+        }
+    }
+    largest
+}</code></pre></pre>
 
                     </main>
 
