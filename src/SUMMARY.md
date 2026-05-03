@@ -14,3 +14,4 @@
     - [hashmap_notes.rs](rustdev/06_hashmap_notes.md)
     - [longest_word_borrow_heap.rs](rustdev/07_longest_word_borrow.md)
     - [concatenate_a_str.rs](rustdev/08_concatenate_a_str.md)
+    - [closures_instead_of_matches.md](rustdev/09_closures_instead_of_matches.md)
