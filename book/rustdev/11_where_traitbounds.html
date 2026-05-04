@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>generic_function.md - animehunter123&#x27;s github homepage</title>
+        <title>where_traitbounds.md - animehunter123&#x27;s github homepage</title>
 
 
         <!-- Custom HTML head -->
@@ -175,44 +175,46 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="this-is-a-function-which-is-generic-over-type-t-which-must-implement-partialord"><a class="header" href="#this-is-a-function-which-is-generic-over-type-t-which-must-implement-partialord">This is a function which is GENERIC over type T which MUST IMPLEMENT PARTIALORD</a></h1>
-<pre><pre class="playground"><code class="language-rust">fn main() {
-    let list01 = [1, 2, 4, 6, 3, 77, 3];
-    let largest = find_largest(&amp;list01);
-    let list02 = ['w', 'u', 't'];
-    let largest2 = find_largest(&amp;list02);
-    dbg!(largest);
-    dbg!(largest2);
-}
-
-/* We read this definition as...
- 
- “The function largest is generic over some type T.” 
- 
- This function has one parameter named list, which is a 
- slice of values of type T. The largest function will 
- return a reference to a value of the same type T. */
-fn find_largest&lt;T: std::cmp::PartialOrd&gt;(numlist: &amp;[T]) -&gt; &amp;T {
-    let mut largest = &amp;numlist[0];
-    for i in numlist {
-        if largest &lt; i {
-            largest = i;
-        }
-    }
-    largest
-}</code></pre></pre>
+                        <p>THIS IS FROM THE RUST BOOK ORIGINALLY, GOOD TO STUDY AND MEMORIZE</p>
+<p><strong>BASICALLY THAT where keyword I spotted was a trait bound...</strong></p>
+<h1 id="multiple-trait-bounds-with-the--syntax"><a class="header" href="#multiple-trait-bounds-with-the--syntax">Multiple Trait Bounds with the + Syntax</a></h1>
+<p>We can also specify more than one trait bound. Say we wanted notify to use display formatting as well as summarize on item: We specify in the notify definition that item must implement both Display and Summary. We can do so using the + syntax:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub fn notify(item: &amp;(impl Summary + Display)) {
+<span class="boring">}</span></code></pre></pre>
+<p>The + syntax is also valid with trait bounds on generic types:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub fn notify&lt;T: Summary + Display&gt;(item: &amp;T) {
+<span class="boring">}</span></code></pre></pre>
+<p>With the two trait bounds specified, the body of notify can call summarize and use {} to format item.</p>
+<p>THE WHERE KEYWORD IS HERE////</p>
+<h1 id="clearer-trait-bounds-with-where-clauses"><a class="header" href="#clearer-trait-bounds-with-where-clauses">Clearer Trait Bounds with where Clauses</a></h1>
+<p>Using too many trait bounds has its downsides. Each generic has its own trait bounds, so functions with multiple generic type parameters can contain lots of trait bound information between the function’s name and its parameter list, making the function signature hard to read. For this reason, Rust has alternate syntax for specifying trait bounds inside a where clause after the function signature. So, instead of writing this:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn some_function&lt;T: Display + Clone, U: Clone + Debug&gt;(t: &amp;T, u: &amp;U) -&gt; i32 {
+<span class="boring">}</span></code></pre></pre>
+<p>we can use a where clause, like this:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn some_function&lt;T, U&gt;(t: &amp;T, u: &amp;U) -&gt; i32
+where
+    T: Display + Clone,
+    U: Clone + Debug,
+{
+<span class="boring">}</span></code></pre></pre>
+<p>This function’s signature is less cluttered: The function name, parameter list, and return type are close together, similar to a function without lots of trait bounds.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../rustdev/09_closures_instead_of_matches.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../rustdev/10_generic_function.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../rustdev/11_where_traitbounds.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -220,13 +222,10 @@ fn find_largest&lt;T: std::cmp::PartialOrd&gt;(numlist: &amp;[T]) -&gt; &amp;T {
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../rustdev/09_closures_instead_of_matches.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../rustdev/10_generic_function.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../rustdev/11_where_traitbounds.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
             </nav>
 
         </div>
