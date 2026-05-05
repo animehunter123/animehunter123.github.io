@@ -1,3 +1,50 @@
+# So, basically:
+
+# This chapter from The Rust Book was hard (10.2) (I.e. kinda like those Cpp interfaces)
+
+* Trait = The functionality a type has, and can share with other types.
+
+* Trait Bound = A generic Type of anything, can have shared behaviour.
+
+We make them like:
+
+pub trait Summary {
+    fn blah (&self) -> blah {blah blah}
+}
+
+* We can use trait as a param too via:
+
+pub fn notify(item: &impl Summary) {}
+
+which is a trait bound syntax for:
+
+pub fn notify<T: Summary>(item: &T) {}
+
+
+or... if multiple traits and hard to read, we use the "while":
+
+fn blah<T, U> (t: &T, u: &U) -> i32
+where
+    T: Display + Clone
+    U: Clone + Debug
+{ blah blah ; }
+
+* We can return a type that implements a trait
+
+fn return_summarizable() -> impl Summary {
+Summary{blah: blah} // return me
+}
+
+
+
+
+
+
+
+
+
+
+
 THIS IS FROM THE RUST BOOK ORIGINALLY, GOOD TO STUDY AND MEMORIZE
 
 **BASICALLY THAT where keyword I spotted was a trait bound...**

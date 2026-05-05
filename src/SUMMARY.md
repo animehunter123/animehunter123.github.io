@@ -16,4 +16,5 @@
     - [concatenate_a_str.rs](rustdev/08_concatenate_a_str.md)
     - [closures_instead_of_matches.md](rustdev/09_closures_instead_of_matches.md)
     - [generic_function.md](rustdev/10_generic_function.md)
-    - [where_traitbounds.md](rustdev/11_where_traitbounds.md)
+    - [where_traitbounds.md](rustdev/11_traits_where_trait.md)
+    - [lifetime_static.md](rustdev/12_lifetime_static.md)

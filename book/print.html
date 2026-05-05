@@ -594,7 +594,39 @@ fn find_largest&lt;T: std::cmp::PartialOrd&gt;(numlist: &amp;[T]) -&gt; &amp;T {
     }
     largest
 }</code></pre></pre>
-<div style="break-before: page; page-break-before: always;"></div><p>THIS IS FROM THE RUST BOOK ORIGINALLY, GOOD TO STUDY AND MEMORIZE</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="so-basically"><a class="header" href="#so-basically">So, basically:</a></h1>
+<h1 id="this-chapter-from-the-rust-book-was-hard-102-ie-kinda-like-those-cpp-interfaces"><a class="header" href="#this-chapter-from-the-rust-book-was-hard-102-ie-kinda-like-those-cpp-interfaces">This chapter from The Rust Book was hard (10.2) (I.e. kinda like those Cpp interfaces)</a></h1>
+<ul>
+<li>
+<p>Trait = The functionality a type has, and can share with other types.</p>
+</li>
+<li>
+<p>Trait Bound = A generic Type of anything, can have shared behaviour.</p>
+</li>
+</ul>
+<p>We make them like:</p>
+<p>pub trait Summary {
+fn blah (&amp;self) -&gt; blah {blah blah}
+}</p>
+<ul>
+<li>We can use trait as a param too via:</li>
+</ul>
+<p>pub fn notify(item: &amp;impl Summary) {}</p>
+<p>which is a trait bound syntax for:</p>
+<p>pub fn notify&lt;T: Summary&gt;(item: &amp;T) {}</p>
+<p>or... if multiple traits and hard to read, we use the "while":</p>
+<p>fn blah&lt;T, U&gt; (t: &amp;T, u: &amp;U) -&gt; i32
+where
+T: Display + Clone
+U: Clone + Debug
+{ blah blah ; }</p>
+<ul>
+<li>We can return a type that implements a trait</li>
+</ul>
+<p>fn return_summarizable() -&gt; impl Summary {
+Summary{blah: blah} // return me
+}</p>
+<p>THIS IS FROM THE RUST BOOK ORIGINALLY, GOOD TO STUDY AND MEMORIZE</p>
 <p><strong>BASICALLY THAT where keyword I spotted was a trait bound...</strong></p>
 <h1 id="multiple-trait-bounds-with-the--syntax"><a class="header" href="#multiple-trait-bounds-with-the--syntax">Multiple Trait Bounds with the + Syntax</a></h1>
 <p>We can also specify more than one trait bound. Say we wanted notify to use display formatting as well as summarize on item: We specify in the notify definition that item must implement both Display and Summary. We can do so using the + syntax:</p>
@@ -625,6 +657,19 @@ where
 {
 <span class="boring">}</span></code></pre></pre>
 <p>This function’s signature is less cluttered: The function name, parameter list, and return type are close together, similar to a function without lots of trait bounds.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="here-is-a-simple-app-where-the-func-guarantees-that-the-return-ref-will-be-valid-as-long-as-both-parameters-are-valid"><a class="header" href="#here-is-a-simple-app-where-the-func-guarantees-that-the-return-ref-will-be-valid-as-long-as-both-parameters-are-valid">Here is a simple app where the func guarantees that the RETURN REF will be VALID AS LONG AS BOTH PARAMETERS ARE VALID</a></h1>
+<pre><pre class="playground"><code class="language-rust">fn longest&lt;'a&gt;(x: &amp;'a str, y: &amp;'a str) -&gt; &amp;'a str {
+    if x.len() &gt; y.len() { x } else { y }
+}
+
+fn main() {
+    println!("The returned reference will be valid as long as both of the parameters are valid.");
+    let x = "The returned reference will be valid as long as both of the parameters are valid.";
+    let y = "roba ga takaai koucha toka dezaato skon toka ne";
+
+    let i = longest(x, y);
+    dbg!(i);
+}</code></pre></pre>
 
                     </main>
 
